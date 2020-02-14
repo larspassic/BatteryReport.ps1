@@ -9,7 +9,13 @@ Write-Host "Starting battery life test at $start"
 
 #Begin the loop
 Write-Host "Waiting for battery to drain. This will automatically close when the battery reaches 6%..."
-While ((Get-WmiObject win32_battery).estimatedChargeRemaining -gt 6){Start-Sleep 60}
+While (
+    (
+        Get-WmiObject win32_battery).estimatedChargeRemaining -gt 6
+    )
+        {
+            Start-Sleep 60
+        }
 
 #Record the end time
 $end=Get-Date
